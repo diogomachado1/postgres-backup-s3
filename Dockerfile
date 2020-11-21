@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:edge
 LABEL maintainer="Diogo Machado <diogomachado_8@hotmail.com>"
 
 ADD install.sh install.sh
