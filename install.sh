@@ -10,13 +10,16 @@ apk update
 apk add postgresql
 
 # install s3 tools
-apk add --no-cache build-base python3-dev python3 libffi-dev libressl-dev curl \
- && curl -O https://bootstrap.pypa.io/get-pip.py \
- && python3 get-pip.py \
- && pip install awscli
-apk del build-base python3-dev python3 libffi-dev libressl-dev
+apk add --no-cache \
+        python3 \
+        py3-pip \
+    && pip3 install --upgrade pip \
+    && pip3 install \
+        awscli \
+    && rm -rf /var/cache/apk/*
 
 # install go-cron
+apk add curl
 curl -L --insecure https://github.com/odise/go-cron/releases/download/v0.0.6/go-cron-linux.gz | zcat > /usr/local/bin/go-cron
 chmod u+x /usr/local/bin/go-cron
 apk del curl
