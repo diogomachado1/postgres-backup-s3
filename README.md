@@ -22,7 +22,7 @@ postgres:
     POSTGRES_PASSWORD: password
 
 pgbackups3:
-  image: schickling/postgres-backup-s3
+  image: diogo8machado/postgres-backup-s3
   links:
     - postgres
   environment:
